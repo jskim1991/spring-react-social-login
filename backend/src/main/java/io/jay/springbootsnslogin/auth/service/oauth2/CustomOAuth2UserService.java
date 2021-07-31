@@ -1,8 +1,10 @@
 package io.jay.springbootsnslogin.auth.service.oauth2;
 
-import io.jay.springbootsnslogin.auth.store.UserStore;
-import io.jay.springbootsnslogin.auth.domain.*;
+import io.jay.springbootsnslogin.auth.domain.PrincipalDetails;
+import io.jay.springbootsnslogin.auth.domain.RoleType;
+import io.jay.springbootsnslogin.auth.domain.User;
 import io.jay.springbootsnslogin.auth.domain.oauth2.*;
+import io.jay.springbootsnslogin.auth.store.UserStore;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +19,7 @@ import org.springframework.web.client.RestOperations;
 import java.util.Collections;
 import java.util.Map;
 
-import static io.jay.springbootsnslogin.auth.domain.oauth2.Provider.*;
+import static io.jay.springbootsnslogin.auth.domain.oauth2.Provider.valueOf;
 
 @Service
 public class CustomOAuth2UserService implements OAuth2UserService {

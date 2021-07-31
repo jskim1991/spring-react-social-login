@@ -1,12 +1,11 @@
 package io.jay.springbootsnslogin.config;
 
+import io.jay.springbootsnslogin.auth.filter.JwtRequestFilter;
 import io.jay.springbootsnslogin.auth.service.oauth2.CustomAuthenticationFailureHandler;
 import io.jay.springbootsnslogin.auth.service.oauth2.CustomAuthenticationSuccessHandler;
 import io.jay.springbootsnslogin.auth.service.oauth2.CustomOAuth2UserService;
-import io.jay.springbootsnslogin.auth.filter.JwtRequestFilter;
 import io.jay.springbootsnslogin.auth.token.TokenProvider;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
