@@ -5,6 +5,7 @@ import io.jay.springbootsnslogin.auth.domain.RoleType;
 import io.jay.springbootsnslogin.auth.domain.User;
 import io.jay.springbootsnslogin.auth.domain.oauth2.*;
 import io.jay.springbootsnslogin.auth.store.UserStore;
+import io.jay.springbootsnslogin.util.JsonUtil;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -35,12 +36,14 @@ public class CustomOAuth2UserService implements OAuth2UserService {
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         Map<String, Object> attributes = getUserAttributes(userRequest);
+        System.out.println(JsonUtil.toJson(attributes));
         String clientName = userRequest.getClientRegistration().getClientName();
 
         OAuth2UserInfo userInfo = buildUserInfo(attributes, clientName);
-        User user = userStore.retrieveUserByUsernameAndProvider(userInfo.getUsername(), clientName);
+        User user = userStore.retrieveUserByUserIdAndProvider(userInfo.getUserIdByProvider(), clientName);
         if (user == null) {
             User newUser = User.builder()
+                    .userId(userInfo.getUserIdByProvider())
                     .username(userInfo.getUsername())
                     .roles(Collections.singleton(RoleType.ROLE_USER))
                     .provider(clientName)

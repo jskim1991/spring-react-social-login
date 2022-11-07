@@ -14,7 +14,7 @@ const RedirectHandler = () => {
         const tokenCookie = getCookieValueByKey('token')
         localStorage.setItem('token', tokenCookie)
 
-        history.push('/home')
+        history.replace('/home')
     }, [])
 
     return (

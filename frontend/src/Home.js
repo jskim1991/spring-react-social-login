@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const Home = () => {
-    const [name, setName] = useState('')
-    const [provider, setProvider] = useState('')
+    const [user, setUser] = useState({})
 
     useEffect(() => {
         async function getUserName() {
@@ -18,8 +17,7 @@ const Home = () => {
             .then((response) => {
                 const { data } = response
                 console.log(data)
-                setName(data.user.username)
-                setProvider(data.user.provider)
+                setUser(data)
             })
             .catch((error) => {
                 console.log(error.response)
@@ -28,9 +26,13 @@ const Home = () => {
 
     return (
         <div>
-            <div>Hello there</div>
-            <div>{`OAuth2.0 Client: ${provider}`}</div>
-            <div>{`Name: ${name}`}</div>
+            <div>Here is your profile</div>
+            <br/>
+            <div>{`Name: ${user?.username}`}</div>
+            <div>{`User Id: ${user?.userId}`}</div>
+            <div>{`Provider: ${user?.provider}`}</div>
+            <div>{`Roles: ${user?.roles?.join(' ')}`}</div>
+            <div>{`Registered: ${user?.creationTimestamp}`}</div>
         </div>
     )
 }

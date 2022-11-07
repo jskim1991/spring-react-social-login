@@ -19,6 +19,7 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String userId;
     private String username;
     private String provider;
 
@@ -31,6 +32,7 @@ public class UserEntity {
 
     public UserEntity(User newUser) {
         this.id = newUser.getId();
+        this.userId = newUser.getUserId();
         this.username = newUser.getUsername();
         this.provider = newUser.getProvider();
         this.roles = newUser.getRoles();
@@ -39,6 +41,7 @@ public class UserEntity {
     public User toDomain() {
         User user = new User();
         user.setId(id);
+        user.setUserId(userId);
         user.setUsername(username);
         user.setProvider(provider);
         user.setRoles(roles);

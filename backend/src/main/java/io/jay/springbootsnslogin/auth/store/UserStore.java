@@ -6,7 +6,7 @@ public interface UserStore {
 
     User retrieveUser(Long id);
 
-    User retrieveUserByUsernameAndProvider(String username, String provider);
+    User retrieveUserByUserIdAndProvider(String username, String provider);
 
     User addNewUser(User newUser);
 }

@@ -10,5 +10,7 @@ public abstract class OAuth2UserInfo {
         this.attributes = attributes;
     }
 
+    public abstract String getUserIdByProvider();
+
     public abstract String getUsername();
 }

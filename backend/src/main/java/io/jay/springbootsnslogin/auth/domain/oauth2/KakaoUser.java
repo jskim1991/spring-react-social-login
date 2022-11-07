@@ -9,7 +9,13 @@ public class KakaoUser extends OAuth2UserInfo {
     }
 
     @Override
-    public String getUsername() {
+    public String getUserIdByProvider() {
         return attributes.get("id").toString();
+    }
+
+    @Override
+    public String getUsername() {
+        Map<String, Object> userAttributes = (Map<String, Object>) attributes.get("properties");
+        return userAttributes.get("nickname").toString();
     }
 }

@@ -21,8 +21,8 @@ public class UserJpaStore implements UserStore {
     }
 
     @Override
-    public User retrieveUserByUsernameAndProvider(String username, String provider) {
-        Optional<UserEntity> result = userRepository.findByUsernameAndProvider(username, provider);
+    public User retrieveUserByUserIdAndProvider(String username, String provider) {
+        Optional<UserEntity> result = userRepository.findByUserIdAndProvider(username, provider);
         return result.isPresent() ? result.get().toDomain() : null;
     }
 

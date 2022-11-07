@@ -16,4 +16,4 @@
 
 ###4. Perform OAuth2.0 Login
 
-###5. Browser will redirect to `/home` and show OAuth2.0 client name and username
+###5. Browser will redirect to `/home` and show user info based on OAuth2.0

@@ -14,6 +14,7 @@ import java.util.Set;
 @Builder
 public class User {
     private Long id;
+    private String userId;
     private String username;
     private String provider;
     private Set<RoleType> roles;

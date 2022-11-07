@@ -9,9 +9,6 @@ function App() {
             <Route exact path="/">
                 <Login />
             </Route>
-            <Route exact path="/Login">
-                <Login />
-            </Route>
             <Route exact path="/home">
                 <Home />
             </Route>
